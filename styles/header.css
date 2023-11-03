@@ -1,0 +1,105 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    background-color: var(--dark-blue);
+    max-width: 1000px;
+    margin: auto;
+}
+
+ul.right-section {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.right-section li {
+    display: inline-block;
+}
+
+ul.right-section li:not(:first-child) {
+    margin-left: 20px;
+}
+
+ul.right-section li:last-child { /*for the hamburger menu, to make the contact button align with the header border*/
+    margin-left: 0;
+}
+
+ul.right-section li a {
+    font-size: 1em;
+    color: var(--light-grey);
+    transition: color .3s;
+    padding: 10px 5px;
+    position: relative; /*for the '.add-line-below'*/
+}
+
+ul.right-section li a:hover {
+    color: var(--light-blue);
+}
+
+ul.right-section li a:active {
+    opacity: .8;
+}
+
+ul.right-section .js-active-nav-link { color: var(--light-blue); }
+
+ul.right-section a.contact-button {
+    padding: 12px 20px;
+}
+
+ul.right-section li a.hamburger-menu {
+    display: none;
+    transform: scale(1);
+    transition: 0.5s;
+}
+
+header div.sidemenu {
+    padding-top: 70px;
+    position: fixed;
+    background-color: var(--dark-blue);
+    box-shadow: -4px 0 8px black;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    overflow-x: hidden;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+header div.sidemenu a {
+    display: block;
+    padding: 15px 25px;
+    white-space: nowrap;
+}
+
+header div.sidemenu a:hover,
+header div.sidemenu a:active {
+    color: var(--light-blue);
+}
+
+.close-button {
+    font-size: 4em;
+    color: var(--light-blue);
+    position: absolute;
+    top: -10px;
+    right: 19px;
+    transform: scale(0);
+    transition: 0.5s;
+}
+
+@media (max-width : 850px) {
+    ul.right-section li:not(:last-child) {
+        display: none;
+    }
+
+    ul.right-section li a.hamburger-menu {
+        display: block;
+    }
+}

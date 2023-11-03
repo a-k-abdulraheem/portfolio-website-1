@@ -1,0 +1,122 @@
+:root {
+  --dark-blue: rgb(15, 22, 48);
+  --light-blue: rgb(78, 173, 216);
+  --light-purple: rgb(71, 26, 187);
+  --white: white;
+  --light-grey: rgb(200, 204, 216);
+  --grey: rgb(135, 139, 151);
+}
+
+::selection {
+  background-color: var(--light-blue);
+  color: var(--white);
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+  color: var(--white);
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--dark-blue);
+  font-size: 16px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.gradient-Animation {
+    color: var(--white) !important;
+    background-image: repeating-linear-gradient(to bottom right, var(--light-blue), var(--light-purple) 50%);
+    border-radius: 8px;
+    background-size: 200% 200%;
+    background-position: 100% 100%;
+    transition: background-position 0.8s !important; /* I used 'important' to overide the transition property in the 'ul.right-section li a' selector for the contact button in the header page */
+}
+
+.gradient-Animation:hover {
+    background-position: 0% 0%;
+}
+
+.gradient-Animation:active {
+  opacity: .8;
+}
+
+p {
+  color: var(--grey);
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.add-line-below::after {
+  content: "";
+  height: 3px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: -5px;
+  background-color: var(--light-blue);
+  display: block;
+  left: 50%;
+  width: 0;
+  transition: width 0.3s ease-out,
+    left 0.3s ease-out;
+}
+
+.add-line-below:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.js-banner {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--dark-blue);
+  overflow: hidden;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: bannerAnimation 0.5s ease-in 2s 1 forwards;
+}
+
+.js-banner img {
+  height: auto;
+  max-width: 100%;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: bannerAnimationImage 1.5s ease-in-out 1 forwards;
+}
+
+@keyframes bannerAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes bannerAnimationImage {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.opacity-overlay {
+  opacity: 0.3;
+}
