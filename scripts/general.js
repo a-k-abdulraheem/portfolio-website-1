@@ -29,120 +29,21 @@ function closeSidemenu() {
     });
 }
 
-/*
-document.querySelectorAll('header ul.right-section li a')
-  .forEach( listElement => {
-    listElement.addEventListener('click', () => {
-      const activelistElement = document.querySelector('.js-active-nav-link');
-      activelistElement.classList.remove('js-active-nav-link');
-      listElement.classList.add('js-active-nav-link');
+function addMotionToImages() {
+  const projectImages = document.querySelectorAll('.js-project-image, .js-about-me-image');
+
+  window.addEventListener('scroll', () => {
+    projectImages.forEach((image) => {
+      const {top, bottom} = image.getBoundingClientRect();
+      const viewTop = (window.innerHeight / 4) * 3;
+      const viewBottom = (window.innerHeight / 4)
+      if (top < viewTop && bottom > viewBottom) {
+        image.classList.add('js-move-image');
+      } else {
+        image.classList.remove('js-move-image');
+      }
     });
   });
-*/
+}
 
-const portfolioProjectsObject = {
-  'mobileAppProjectsArray': [
-    {
-      projectName: 'Meeting Mobile App Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    },
-    {
-      projectName: 'E Commerce Mobile App Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    },
-    {
-      projectName: 'Fitness Mobile App Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    },
-    {
-      projectName: 'Modelling Mobile App Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    }
-  ],
-  'websiteProjectsArray': [
-    {
-      projectName: 'Meeting Website  Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    },
-    {
-      projectName: 'E Commerce Website Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    },
-    {
-      projectName: 'Fitness Website Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    },
-    {
-      projectName: 'Modelling Website Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    }
-  ],
-  'desktopProjectsArray': [
-    {
-      projectName: 'Meeting Desktop App  Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    },
-    {
-      projectName: 'E Commerce Desktop App Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    },
-    {
-      projectName: 'Fitness Desktop App Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    },
-    {
-      projectName: 'Modelling Desktop App Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    }
-  ],
-  'otherProjectProjectsArray': [
-    {
-      projectName: 'Meeting Other Project Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    },
-    {
-      projectName: 'E Commerce Other Project Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    },
-    {
-      projectName: 'Fitness Other Project Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    },
-    {
-      projectName: 'Modelling Other Project Design',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam autem velit quo beatae sit! Quae nostrum eos eveniet deserunt exercitationem facere quod tempore necessitatibus? Nostrum voluptas earum maiores corrupti aliquid? Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-      imageName: '',
-      alternateImageText: ''
-    }
-  ]
-};
+addMotionToImages(); //call for the about-me-image

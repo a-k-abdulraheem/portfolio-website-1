@@ -1,0 +1,18 @@
+.projects-container {
+  margin-top: 100px;
+  padding: 0 30px;
+}
+
+.projects-container h1 {
+  text-align: center;
+}
+
+.project-types-container {
+  border-top: 1px solid var(--light-blue);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* header {
+  position: sticky;
+} */

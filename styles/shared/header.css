@@ -39,10 +39,6 @@ ul.right-section li a {
     position: relative; /*for the '.add-line-below'*/
 }
 
-ul.right-section li a:hover {
-    color: var(--light-blue);
-}
-
 ul.right-section li a:active {
     opacity: .8;
 }
@@ -57,6 +53,7 @@ ul.right-section li a.hamburger-menu {
     display: none;
     transform: scale(1);
     transition: 0.5s;
+    font-size: 2em;
 }
 
 header div.sidemenu {
@@ -89,7 +86,7 @@ header div.sidemenu a:active {
     color: var(--light-blue);
     position: absolute;
     top: -10px;
-    right: 19px;
+    right: 7px;
     transform: scale(0);
     transition: 0.5s;
 }

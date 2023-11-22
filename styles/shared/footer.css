@@ -31,7 +31,7 @@ footer {
   right: -95px;
 }
 
-.contact-div h2:first-child {text-align: center;}
+.contact-div h2 {text-align: center;}
 
 .contact-info {
   display: flex;
@@ -43,6 +43,14 @@ footer {
   max-width: 350px;
 }
 
+.contact-info-details > p {
+  margin-top: 0;
+}
+
+.contact-info-details p {
+  color: var(--white);
+}
+
 .contact-address {
   display: grid;
   grid-template-columns: 50px 1fr;
@@ -50,13 +58,24 @@ footer {
   row-gap: 10px;
 }
 
-.contact-address svg,
-.foot svg {
+.contact-address div,
+.socials div {
   background-image: linear-gradient(110deg, var(--light-blue), var(--light-purple));
   height: 40px;
   width: 40px;
+  border-radius: 8px;
+  text-align: center;
+  display: inline-block;
+}
+
+.contact-address div {
   padding: 10px;
-  border-radius: 5px;
+  font-size: 1.1em;
+}
+
+.socials div {
+  padding: 5px;
+  font-size: 1.6em;
 }
 
 .contact-info-form {
@@ -90,7 +109,7 @@ footer {
   max-height: 400px;
 }
 
-.contact-info-form button {
+.contact-info-form .send-button {
   background-color: var(--dark-blue);
   font-size: 1em;
   border-radius: 5px;
@@ -115,7 +134,7 @@ footer {
 
 .foot .socials { text-align: end; }
 
-.foot .socials a:not(:first-child) { margin-left: 10px; }
+.foot .socials div:not(:last-child) { margin-right: 10px; }
 
 @media ((max-width: 750.02px)) {
   .contact-info {
@@ -127,11 +146,17 @@ footer {
     margin-bottom: 30px;
     font-size: 0.9em;
   }
+}
 
+@media (max-width: 850px) {
   .foot {display: block;}
 
   .foot p,
   .foot .socials {
     text-align: left;
+  }
+
+  .foot .socials div {
+    margin-top: 10px;
   }
 }
