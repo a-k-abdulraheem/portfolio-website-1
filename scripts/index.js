@@ -1,3 +1,15 @@
+import {
+  addEventListenersToHeaderElements,
+  addMotionToImages
+} from './general.js';
+import { portfolioProjectsObject } from '../data/projects.js';
+import { services } from '../data/services.js';
+import {experiences } from '../data/experiences.js';
+
+addEventListenersToHeaderElements();
+
+addMotionToImages(); //call for the about-me-image
+
 const bannerElement = document.querySelector('.js-banner');
 bannerElement.addEventListener('animationend', () => {
   setTimeout( () => {
@@ -33,7 +45,7 @@ function selectProjectTypeToDisplayProjects(buttonElement) {
 
 function displayProjects(projectType) {
   let projectSectionHTML = ``;
-  for (i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i++) {
     const {projectName, description, imageName, link} = portfolioProjectsObject[projectType][i];
 
     const hrefAttribute = link ? `href="${link}" target="_blank"` : '';

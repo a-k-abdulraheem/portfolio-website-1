@@ -1,4 +1,4 @@
-const services = [{
+export const services = [{
   itemNumber: 1,
   name: 'Web App Development',
   icon: 'fa-solid fa-desktop',

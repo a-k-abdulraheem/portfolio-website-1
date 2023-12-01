@@ -1,13 +1,16 @@
 const hamburgerMenuElement = document.querySelector('.js-hamburger-menu');
-hamburgerMenuElement.addEventListener('click', openSidemenu);
+
+export function addEventListenersToHeaderElements() {
+  hamburgerMenuElement.addEventListener('click', openSidemenu);
+
+  document.querySelectorAll('.sidemenu a')
+    .forEach( element => {
+      element.addEventListener('click', closeSidemenu);
+    });
+}
 
 const sidemenuElement = document.querySelector(".js-sidemenu");
 const closebtn = document.querySelector(".js-close-button");
-
-document.querySelectorAll('.sidemenu a')
-  .forEach( element => {
-    element.addEventListener('click', closeSidemenu);
-  });
 
 function openSidemenu() {
   hamburgerMenuElement.style.transform = "scale(0)";
@@ -29,7 +32,7 @@ function closeSidemenu() {
     });
 }
 
-function addMotionToImages() {
+export function addMotionToImages() {
   const projectImages = document.querySelectorAll('.js-project-image, .js-about-me-image');
 
   window.addEventListener('scroll', () => {
@@ -45,5 +48,3 @@ function addMotionToImages() {
     });
   });
 }
-
-addMotionToImages(); //call for the about-me-image

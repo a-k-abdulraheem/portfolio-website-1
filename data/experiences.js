@@ -1,4 +1,4 @@
-const experiences = [{
+export const experiences = [{
   name: 'C',
   imageName: 'images/C.png',
   alternateName: 'C Programming Language'

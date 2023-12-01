@@ -1,4 +1,4 @@
-const portfolioProjectsObject = {
+export const portfolioProjectsObject = {
   'mobileAppProjectsArray': [
     {
       projectName: 'Meeting Mobile App Design',

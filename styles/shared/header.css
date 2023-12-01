@@ -43,7 +43,8 @@ ul.right-section li a:active {
     opacity: .8;
 }
 
-ul.right-section .js-active-nav-link { color: var(--light-blue); }
+ul.right-section .active-nav-link,
+.sidemenu .active-nav-link { color: var(--light-blue); }
 
 ul.right-section a.contact-button {
     padding: 12px 20px;

@@ -1,3 +1,11 @@
+import {
+  addEventListenersToHeaderElements,
+  addMotionToImages
+} from './general.js';
+import { portfolioProjectsObject } from "../data/projects.js";
+
+addEventListenersToHeaderElements();
+
 const queryForPortfolioProjects = window.matchMedia('(max-width : 820px)');
   
 let activeButtonElement = document.querySelector('.js-active-project-types-button');
